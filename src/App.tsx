@@ -203,7 +203,7 @@ export function App(): React.ReactElement {
 			</header>
 
 			<section className="pt-72 container pb-20">
-				<section className="grid grid-cols-6 gap-8">
+				<section className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl gap-8">
 					{Array.from({ length: 8 }).map((_, index) => (
 						<aside
 							className="max-w-xs w-full flex gap-2 justify-center items-center flex-col border-[#585500]"
