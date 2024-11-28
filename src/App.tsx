@@ -35,13 +35,14 @@ export function App(): React.ReactElement {
 					<section className="flex gap-4 items-center">
 						<a
 							href="/"
-							className="mr-8"
+							className="mr-8 text-green-600 font-extrabold text-3xl"
 						>
-							<img
+							<h1>ConAmaz</h1>
+							{/* <img
 								alt="Store Logo"
 								src="/logo.png"
 								className="max-w-40 w-full h-12"
-							/>
+							/> */}
 						</a>
 
 						<DropdownMenu>
@@ -124,28 +125,58 @@ export function App(): React.ReactElement {
 								</SheetHeader>
 								<Separator />
 								<div className="flex flex-col gap-4	w-full overflow-y-auto pb-28">
-									{Array.from({ length: 4 }).map((_, index) => {
+									{[
+										{
+											id: 1,
+											title: '1kg de Macaxeira',
+											price: 5.0,
+											image:
+												'https://img.freepik.com/free-photo/composition-nutritious-cassava-roots-sliced_23-2149091027.jpg?t=st=1732768619~exp=1732772219~hmac=cfe9da38ed08aeb6e3674db02941e7b3def47febb56488fb4c27fa9cd7904dde&w=1380',
+										},
+										{
+											id: 4,
+											title: '10kg de macaxeira',
+											price: 5.0,
+											image:
+												'https://img.freepik.com/free-photo/delicious-pineapple-still-life_23-2150408041.jpg?t=st=1732768856~exp=1732772456~hmac=e8ea442310000407712989d698ce6446b60c50a782706d6d0ba1b5c65b65ee23&w=1380',
+										},
+										{
+											id: 3,
+											title: '1kg de Laranja',
+											price: 5.0,
+											image:
+												'https://img.freepik.com/free-photo/delicious-orange-white_144627-16391.jpg?t=st=1732769084~exp=1732772684~hmac=c2771d772694346b7bc9e2e6cab3676802c9d6e2a3e21912c9969b216a41975f&w=740',
+										},
+										{
+											id: 4,
+											title: '1kg de Mapati',
+											price: 5.0,
+											image:
+												'https://img.freepik.com/free-photo/red-grapes_1232-1797.jpg?t=st=1732769173~exp=1732772773~hmac=035e7288f8479ab83fbcc57ed5d3e75a4ece64a51b1c6c5973231c635508b9e1&w=1380',
+										},
+									].map((item) => {
+										// eslint-disable-next-line react-hooks/rules-of-hooks
 										const [count, setCount] = React.useState(0);
 
 										return (
 											<aside
-												key={index}
+												key={item.id}
 												className="flex flex-1 w-full gap-4 border border-[#585500] p-2 rounded-md "
 											>
 												<div className="w-[80px] h-[80px]">
 													<img
 														className="w-full h-full border-[#585500] rounded-lg border-2"
-														src="https://images.tcdn.com.br/img/img_prod/763583/tiara_com_aplicacao_de_perola_emilli_9221_1_a5369fc3e8183f5a0211c1337fb6080b_20240209155117.jpg"
+														src={item.image}
 														alt="Produto 1"
 													/>
 												</div>
 												<div className="flex flex-col gap-3 flex-1 w-full">
-													<h3 className="text-[#585500]">
-														Tiara de bolinhas {index + 1}
-													</h3>
+													<h3 className="text-[#585500]">{item.title}</h3>
 
 													<div className="flex gap-2 items-center w-full">
-														<span className="text-md">R$ 8.599,90</span>
+														<span className="text-md">
+															R$ {item.price.toFixed(2).replace('.', ',')}
+														</span>
 
 														<div className="flex justify-end items-end flex-1">
 															<Button
@@ -179,7 +210,7 @@ export function App(): React.ReactElement {
 								<SheetFooter className="w-full flex sm:flex-col gap-4 flex-1 absolute bottom-0 left-0 py-6 px-4 bg-primary-foreground">
 									<div className="flex flex-1 justify-between">
 										<h3>Total</h3>
-										<span className="font-bold">R$ 8.599,90</span>
+										<span className="font-bold">R$ 20,00</span>
 									</div>
 
 									<SheetClose
@@ -203,25 +234,85 @@ export function App(): React.ReactElement {
 			</header>
 
 			<section className="pt-72 container pb-20">
-				<section className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl gap-8">
-					{Array.from({ length: 8 }).map((_, index) => (
+				<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+					{[
+						{
+							id: 1,
+							title: '1kg de Macaxeira',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/composition-nutritious-cassava-roots-sliced_23-2149091027.jpg?t=st=1732768619~exp=1732772219~hmac=cfe9da38ed08aeb6e3674db02941e7b3def47febb56488fb4c27fa9cd7904dde&w=1380',
+						},
+						{
+							id: 4,
+							title: '10kg de macaxeira',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/delicious-pineapple-still-life_23-2150408041.jpg?t=st=1732768856~exp=1732772456~hmac=e8ea442310000407712989d698ce6446b60c50a782706d6d0ba1b5c65b65ee23&w=1380',
+						},
+						{
+							id: 3,
+							title: '1kg de Laranja',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/delicious-orange-white_144627-16391.jpg?t=st=1732769084~exp=1732772684~hmac=c2771d772694346b7bc9e2e6cab3676802c9d6e2a3e21912c9969b216a41975f&w=740',
+						},
+						{
+							id: 4,
+							title: '1kg de Mapati',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/red-grapes_1232-1797.jpg?t=st=1732769173~exp=1732772773~hmac=035e7288f8479ab83fbcc57ed5d3e75a4ece64a51b1c6c5973231c635508b9e1&w=1380',
+						},
+						{
+							id: 5,
+							title: '1kg de Macaxeira',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/composition-nutritious-cassava-roots-sliced_23-2149091027.jpg?t=st=1732768619~exp=1732772219~hmac=cfe9da38ed08aeb6e3674db02941e7b3def47febb56488fb4c27fa9cd7904dde&w=1380',
+						},
+						{
+							id: 6,
+							title: '10kg de macaxeira',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/delicious-pineapple-still-life_23-2150408041.jpg?t=st=1732768856~exp=1732772456~hmac=e8ea442310000407712989d698ce6446b60c50a782706d6d0ba1b5c65b65ee23&w=1380',
+						},
+						{
+							id: 7,
+							title: '1kg de Laranja',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/delicious-orange-white_144627-16391.jpg?t=st=1732769084~exp=1732772684~hmac=c2771d772694346b7bc9e2e6cab3676802c9d6e2a3e21912c9969b216a41975f&w=740',
+						},
+						{
+							id: 8,
+							title: '1kg de Mapati',
+							price: 5.0,
+							image:
+								'https://img.freepik.com/free-photo/red-grapes_1232-1797.jpg?t=st=1732769173~exp=1732772773~hmac=035e7288f8479ab83fbcc57ed5d3e75a4ece64a51b1c6c5973231c635508b9e1&w=1380',
+						},
+					].map((item) => (
 						<aside
 							className="max-w-xs w-full flex gap-2 justify-center items-center flex-col border-[#585500]"
-							key={index}
+							key={item.id}
 						>
 							<img
-								src="https://images.tcdn.com.br/img/img_prod/763583/tiara_com_aplicacao_de_perola_emilli_9221_1_a5369fc3e8183f5a0211c1337fb6080b_20240209155117.jpg"
+								style={{ width: '200px', height: '200px' }}
+								src={item.image}
 								alt="Image"
 								loading="lazy"
-								className="w-44 h-44 border-[#585500] rounded-lg"
+								className="border-[#585500] rounded-lg"
 							/>
 
 							<div className="flex flex-col w-full justify-center items-center">
 								<a className="text-center cursor-pointer text-[#585500]">
-									Tiara de Bolinhas {index + 1}
+									{item.title}
 								</a>
 
-								<span className="font-bold text-[#585500]">R$ 40,00</span>
+								<span className="font-bold text-[#585500]">
+									R$ {item.price.toFixed(2).replace('.', ',')}
+								</span>
 							</div>
 						</aside>
 					))}
